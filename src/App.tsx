@@ -22,6 +22,7 @@ import { extractCodeBlocks } from './utils/formatters';
 import { onAuthStateChanged, signOut as fbSignOut } from 'firebase/auth';
 import { auth, OWNER_EMAIL, isOwnerEmail } from './firebase';
 import confetti from 'canvas-confetti';
+import { Analytics } from '@vercel/analytics/react';
 
 const STORAGE_KEY_SESSIONS = 'gemini_mind_sessions_v2';
 const STORAGE_KEY_PROFILE = 'gemini_mind_profile_v2';
@@ -826,6 +827,9 @@ export default function App() {
         onUpdateUserPlan={handleUpdateUserPlan}
         onAddTokensToUser={handleAddTokensToUser}
       />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
